@@ -8,4 +8,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4.2.2
+    - name: setup dot net
+      uses: actions/setup-dotnet@v4.2.0
+    - name: restore dependancy 
+      run: dotnet restore
+    - name: build dot net
+      run: dotnet build --no-restore
+    
   
