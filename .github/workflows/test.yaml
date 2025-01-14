@@ -11,10 +11,11 @@ jobs:
     - name: setup dot net
       uses: actions/setup-dotnet@v4.2.0
     - name: restore dependancy 
-      run: dotnet restore
-    - name: build dot net
-      run: dotnet build --no-restore
-    - name: dotnet test
-      run: dotnet test -l:trx;LogFileName=TestOutput.xml >> $GITHUB_STEP_SUMMARY
-    
+    - name: add markdown report logger for frontend project
+      run: dotnet add unittests/unittests.csproj  package LiquidTestReports.Markdown
+    - name: Test
+      run: dotnet test --logger "liquid.md;logfilename=testResults.md" 
+    - name: Output the results to the actions jobsummary
+      if: always()
+      run: cat $(find . -name testResults.md) >> $GITHUB_STEP_SUMMARY
   
