@@ -10,7 +10,10 @@ jobs:
       uses: actions/checkout@v4.2.2
     - name: setup dot net
       uses: actions/setup-dotnet@v4.2.0
-    - name: restore dependancy 
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
     - name: add markdown report logger for frontend project
       run: dotnet add unittests/unittests.csproj  package LiquidTestReports.Markdown
     - name: Test
