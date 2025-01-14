@@ -15,6 +15,6 @@ jobs:
     - name: build dot net
       run: dotnet build --no-restore
     - name: dotnet test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test -l:trx;LogFileName=TestOutput.xml >> $GITHUB_STEP_SUMMARY
     
   
