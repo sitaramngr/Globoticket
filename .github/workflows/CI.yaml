@@ -6,7 +6,7 @@ permissions:
 on:
   workflow_dispatch:
   push:
-      branches: [ "feature/*" ]
+      branches: [ "dependabot/*" ]
       paths:
       - 'frontend/**'
       - 'catalog/**'
