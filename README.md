@@ -1,7 +1,7 @@
 # GloboTicket Demo Application
 
 This application is intended to demonstrate how to deploy an ASP.NET core application to Kubernetes.
-It is the  project for the book GitHub Actions in Actions by Michael Kaufmann, Rob Bos and Marcel de Vries 
+It is the  project for the book GitHub Actions in Actions by Michael Kaufmann, Rob Bos and Marcel de Vrie
 
 ## Globoticket website
 The globoticket website looks as follows when used:
