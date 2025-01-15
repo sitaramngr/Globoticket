@@ -6,11 +6,12 @@ permissions:
 on:
   workflow_dispatch:
   push:
-      branches: [ "dependabot/**" ]
+      branches:
+        - 'dependabot/github_actions/**'
       paths:
-      - 'frontend/**'
-      - 'catalog/**'
-      - 'ordering/**'
+        - 'frontend/**'
+        - 'catalog/**'
+        - 'ordering/**'
 jobs:
   build:
     runs-on: ubuntu-latest
