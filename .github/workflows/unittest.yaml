@@ -1,0 +1,37 @@
+name: "unit test of application"
+permissions:
+  actions: write
+  contents: read
+env:
+  GH_TOKEN: ${{ github.token }}
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: 
+      - 'main'
+    paths: 
+      - 'frontend/**'
+      - 'catalog/**'
+      - 'ordering/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4.2.2
+      - name: setup dotnet
+        uses: actions/setup-dotnet@v4.2.0
+        with:
+          dotnet-version: 6.0.x
+
+      - name: run test
+        run: dotnet add unittests/unittests.csproj package LiquidTestReports.Markdown
+
+      - name: test
+        run: dotnet test --logger "liquid.md;logfilename=testresult.md"
+
+      - name: publish to job summary
+        run: cat $(find . -name testresult.md) >> $GITHUB_STEP_SUMMARY
+      
