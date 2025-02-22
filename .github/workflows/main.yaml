@@ -1,0 +1,23 @@
+name: "my app"
+permissions: 
+  actions: write
+  contents: read
+
+on: 
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+    paths:
+    - 'frontend/**'
+    - 'backend/**'
+    - 'ordering/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout"
+      - uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 1
+          
+      
