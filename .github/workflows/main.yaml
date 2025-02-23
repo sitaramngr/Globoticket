@@ -26,6 +26,6 @@ jobs:
     - name: "dot net build"
       run: dotnet build
     - name: "test"
-      run: dotnet test --no-build
+      run: dotnet test --no-build >> "$GITHUB_STEP_SUMMARY"
           
       
