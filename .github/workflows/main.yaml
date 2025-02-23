@@ -25,5 +25,7 @@ jobs:
       run: dotnet restore
     - name: "dot net build"
       run: dotnet build
+    - name: "test"
+      run: dotnet test --no-build
           
       
